@@ -1,0 +1,45 @@
+Agriculture
+Forest and Lumber
+Fishery
+Greenhouse
+Mining
+Energy
+Civil Construction
+Ship and Boat Builders
+Building Construction
+Building Maintenance
+Landscaping
+Textile and Leather
+Wood Processing
+Chemical
+Metal and Machinery
+Printing and Publishing
+Food Product
+Electronics and Instrument
+Glass, Pottery, Mineral
+Pulp and Paper Mills
+Marine
+Railroad
+Ground Transport and Transit
+Postal, Express and Message Delivery
+Air Transport
+General Distribution
+Communication and Internet Technology
+Information Service
+Video Audio and Film
+Health Service
+Incarcerated
+Educational
+Performing Arts
+Recreation
+Tourism
+Freelance and Temporary
+Resturaunt
+Hotel
+Catering
+Legal, Public interest and Finiancial
+Government
+Retail
+Utility and Sanitation
+Household and Personal Service
+Sex Industry
