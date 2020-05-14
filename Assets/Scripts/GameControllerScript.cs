@@ -36,21 +36,9 @@ public class GameControllerScript : MonoBehaviour
 
     private void CreateStartingGovtAgencies()
     {
-        int congressEcon = Random.Range(7, 11);
-        float congressMilLevel = Random.Range(3, 8);
-        float congressUnity = Random.Range(70, 95);
-        govtAgenciesList.Add(new OrgClass("Government","US Congress", "Legislation", "US Govt", 550, congressEcon, 8, 9, 10000, 100, congressMilLevel, congressUnity));
-        
-        int ciaEcon = Random.Range(8, 11);
-        float ciaMilLevel = Random.Range(6, 8);
-        float ciaUnity = Random.Range(85, 100);
-        govtAgenciesList.Add(new OrgClass("Government", "CIA", "Espionage", "US Govt", 1000, ciaEcon, 8, 9, 100000, 90, ciaMilLevel, ciaUnity));
 
-        usGovt = new OrgClass(govtAgenciesList, "US Govt", "Government");
 
-        Debug.Log("US Congress has " + govtAgenciesList[0].membershipNumber + " Members and " + govtAgenciesList[0].charList.Count + " Leaders");
-        Debug.Log("CIA has " + govtAgenciesList[1].membershipNumber + " Members and " + govtAgenciesList[1].charList.Count + " Leaders");
-        Debug.Log("US Government has " + usGovt.membershipNumber + " Members and " + usGovt.charList.Count + " Leaders");
+
     }
 
     private void LoadNames()

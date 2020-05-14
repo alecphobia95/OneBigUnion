@@ -8,6 +8,8 @@ public class CharacterClass
     public int economicIdeal, organizationIdeal, politicalIdeal;
     public float militancyLevel, contendednessLevel, experienceLevel, popularity;
 
+    public GameControllerScript gS;
+
     public List<string> traits;
 
     //Intializers
@@ -80,19 +82,20 @@ public class CharacterClass
 
     private string GetName()
     {
+        FindGS();
         int personalName = Random.Range(0, 100);
         int familyName = Random.Range(0, 100);
 
-        string first = "Bob";
+        string first;
         if (gender == "Male")
         {
-            first = GameControllerScript.instance.firstMaleNames[personalName];
+            first = gS.firstMaleNames[personalName];
         }
         else
         {
-            first = GameControllerScript.instance.firstFemaleNames[personalName];
+            first = gS.firstFemaleNames[personalName];
         }
-        string last = GameControllerScript.instance.LastNames[familyName];
+        string last = gS.LastNames[familyName];
         string myName = first + " " + last;
         return (myName);
     }
@@ -103,6 +106,12 @@ public class CharacterClass
             ".\nI have an economic ideal of " + economicIdeal + " a organizational ideal of " + organizationIdeal +
             " a political ideal of " + politicalIdeal + " and a militancy level of " + militancyLevel +
             ".\nI have a contendedness of " + contendednessLevel + " and a popularity of " + popularity + ".");
+    }
+
+    private void FindGS()
+    {
+        GameObject gO = GameObject.FindGameObjectWithTag("GameController");
+        gS = gO.GetComponent<GameControllerScript>();
     }
 
 }

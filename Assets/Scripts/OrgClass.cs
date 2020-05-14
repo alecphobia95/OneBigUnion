@@ -60,106 +60,36 @@ public class OrgClass
                 militancyLevel = Random.Range(0, 10);
                 unityPercent = Random.Range(0, 100);
                 break;
-            default:
-                Debug.Log("Uh oh");
-                break;
-        }
-
-        CreateCharacters();
-
-    }
-
-    //Controlled organization sizes for events
-    public OrgClass(string whichSideAreYouOn, int orgSize, string whatTypeofJob, string parent)
-    {
-        parentOrg = parent;
-        affiliation = whichSideAreYouOn;
-        industry = whatTypeofJob;
-        affiliation = whichSideAreYouOn;
-
-        switch (affiliation)
-        {
-            case "Union":
-                membershipNumber = orgSize;
-                orgCash = Random.Range(100, 1000);
-                economicIdeal = Random.Range(0, 11);
-                organizationIdeal = Random.Range(0, 11);
-                politicalIdeal = Random.Range(0, 11);
-                percentSkilled = Random.Range(20, 80);
-                militancyLevel = Random.Range(0, 10);
-                unityPercent = Random.Range(0, 100);
-                break;
-            case "Organized Crime":
-                membershipNumber = orgSize;
-                orgCash = Random.Range(1000, 10000);
-                economicIdeal = 5;
-                organizationIdeal = 5;
-                politicalIdeal = 5;
-                percentSkilled = 50;
-                militancyLevel = 8;
-                unityPercent = Random.Range(40, 90);
-                break;
-            case "Action Group":
-                membershipNumber = orgSize;
-                orgCash = Random.Range(100, 1000);
-                economicIdeal = Random.Range(0, 11);
-                organizationIdeal = Random.Range(0, 11);
-                politicalIdeal = Random.Range(0, 11);
-                percentSkilled = Random.Range(20, 50);
-                militancyLevel = Random.Range(0, 10);
-                unityPercent = Random.Range(40, 80);
-                break;
-            case "Capital":
-                membershipNumber = orgSize;
+            case "Govt":
+                membershipNumber = Random.Range(10, 51);
                 orgCash = Random.Range(1000, 10000);
                 economicIdeal = Random.Range(7, 11);
                 organizationIdeal = Random.Range(4, 11);
                 politicalIdeal = Random.Range(7, 11);
-                percentSkilled = Random.Range(20, 50);
+                percentSkilled = Random.Range(50, 100);
                 militancyLevel = Random.Range(0, 10);
                 unityPercent = Random.Range(0, 100);
                 break;
             default:
                 Debug.Log("Uh oh");
                 break;
-
         }
 
         CreateCharacters();
+
     }
 
-    //Mostly used for govts, but can be used to make a custom group, like an action group or organized crime
-    public OrgClass(string whichSideAreYouOn, string deptName, string whatTypeofJob, string parent, 
-        int orgSize, int econIdeal, int orgIdeal, int poliIdeal, int startCash, int skilledPortion, 
-        float milLevel, float uniPercent)
+    //Create a parent class
+    public OrgClass(string whichSideAreYouOn, string whatTypeofJob)
     {
-        affiliation = whichSideAreYouOn;
-        orgName = deptName;
-        parentOrg = parent;
-        industry = whatTypeofJob;
-        membershipNumber = orgSize;
-        economicIdeal = econIdeal;
-        organizationIdeal = orgIdeal;
-        politicalIdeal = poliIdeal;
-        orgCash = startCash;
-        percentSkilled = skilledPortion;
-        militancyLevel = milLevel;
-        unityPercent = uniPercent;
-
-        CreateCharacters();
-    }
-
-    //For super orgs that contain other orgs
-    public OrgClass(List<OrgClass> childOrgs, string superName, string whichSideAreYouOn)
-    {
-        affiliation = whichSideAreYouOn;
-        orgName = superName;
-        industry = "Parent Organization";
-        parentOrg = "Top Level";
-
-        subOrgs = childOrgs;
-
-        CalculateParentValues();
+        membershipNumber = Random.Range(50, 5001);
+        orgCash = Random.Range(100, 1000);
+        economicIdeal = Random.Range(0, 11);
+        organizationIdeal = Random.Range(0, 11);
+        politicalIdeal = Random.Range(0, 11);
+        percentSkilled = Random.Range(20, 80);
+        militancyLevel = Random.Range(0, 10);
+        unityPercent = Random.Range(0, 100);
     }
 
     public void CalculateParentValues()
@@ -328,43 +258,37 @@ public class OrgClass
 
     public void CreateOneNewCharacter()
     {
-        int charEcon = Random.Range((economicIdeal - 3), (economicIdeal + 3));
-        if (charEcon < 0)
-        {
-            charEcon = 0;
-        }
-        if (charEcon > 10)
-        {
-            charEcon = 10;
-        }
-        int charOrg = Random.Range((organizationIdeal - 3), (organizationIdeal + 3));
-        if (charOrg < 0)
-        {
-            charOrg = 0;
-        }
-        if (charOrg > 10)
-        {
-            charOrg = 10;
-        }
-        int charPol = Random.Range((politicalIdeal - 3), (politicalIdeal + 3));
-        if (charPol < 0)
-        {
-            charPol = 0;
-        }
-        if (charPol > 10)
-        {
-            charPol = 10;
-        }
-        float charMil = Random.Range((militancyLevel - 3), (militancyLevel + 3));
-        if (charMil < 0)
-        {
-            charMil = 0;
-        }
-        if (charMil > 10)
-        {
-            charMil = 10;
-        }
+        int charEcon = (int)randomValueInAvgRange(economicIdeal);
+
+        int charOrg = (int)randomValueInAvgRange(organizationIdeal);
+
+        int charPol = (int)randomValueInAvgRange(politicalIdeal);
+
+        float charMil = randomValueInAvgRange(militancyLevel);
+
         charList.Add(new CharacterClass(affiliation, orgName, charEcon, charOrg, charPol, charMil));
+
+    }
+
+    private float randomValueInAvgRange(float standard)
+    {
+        float value = Random.Range((standard - 3), (standard + 3));
+
+        if (value < 0)
+        {
+            value = 0;
+        }
+        if (value > 10)
+        {
+            value = 10;
+        }
+
+        return (value);
+    }
+
+    //Left off here, for making the parent classes
+    private void getTotals()
+    {
 
     }
 
