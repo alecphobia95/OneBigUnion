@@ -63,9 +63,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterClass.cs" />
-    <Compile Include="Assets\Scripts\GameControllerScript.cs" />
-    <Compile Include="Assets\Scripts\OrgClass.cs" />
-    <Compile Include="Assets\Scripts\UIControllerScript.cs" />
+    <Compile Include="Assets\Scripts\HolderScripts\GameControllerScript.cs" />
+    <Compile Include="Assets\Scripts\HolderScripts\OrgHoldersScript.cs" />
+    <Compile Include="Assets\Scripts\HolderScripts\UIControllerScript.cs" />
+    <Compile Include="Assets\Scripts\OrgClasses\BusinessClass.cs" />
+    <Compile Include="Assets\Scripts\OrgClasses\GovtClass.cs" />
+    <Compile Include="Assets\Scripts\OrgClasses\OrgClass.cs" />
+    <Compile Include="Assets\Scripts\OrgClasses\UnionClass.cs" />
     <None Include="Assets\TxtFiles\FirstNamesFemale.txt" />
     <None Include="Assets\TxtFiles\FirstNamesMale.txt" />
     <None Include="Assets\TxtFiles\AgricultureNames.txt" />

@@ -47,7 +47,7 @@ public class CharacterClass
     }
 
     //For fully constructed characters
-    public CharacterClass(string afil, string org,
+    public CharacterClass(string org,
         int econIdeal, int orgIdeal, int polIdeal, 
         float milLevel)
     {
@@ -67,7 +67,6 @@ public class CharacterClass
         //character name
         characterName = GetName();
 
-        affiliation = afil;
         orgName = org;
         economicIdeal = econIdeal;
         organizationIdeal = orgIdeal;
